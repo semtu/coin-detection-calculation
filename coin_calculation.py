@@ -4,7 +4,7 @@ import math
 
 
 def detect_coins():
-    coins = cv2.imread(r'C:/Users/personal/Documents/openCV/matt/coins.jpg', 1)
+    coins = cv2.imread(r'coins.jpg', 1)
 
     min_r = 24
     max_r = 34
@@ -18,7 +18,7 @@ def detect_coins():
         x_coor, y_coor, detected_radius = detected_circle
         coins_detected = cv2.circle(coins_copy, (int(x_coor), int(y_coor)), int(detected_radius), (0, 0, 255), 2)
 
-    cv2.imwrite(r'C:/Users/personal/Documents/openCV/matt/coins_detected.jpg', coins_detected)
+    cv2.imwrite(r'coins_detected.jpg', coins_detected)
     return circles
 
 def calculate_amount():
@@ -56,7 +56,7 @@ def calculate_amount():
     tolerance = 0.088
     total_amount = 0
 
-    coins_circled = cv2.imread(r'C:/Users/personal/Documents/openCV/matt/coins_detected.jpg', 1)
+    coins_circled = cv2.imread(r'coins_detected.jpg', 1)
     font = cv2.FONT_HERSHEY_SIMPLEX
 
     for coin in circles[0]:
@@ -80,7 +80,7 @@ def calculate_amount():
     cv2.imshow('image1', coins_circled)
     k = cv2.waitKey(0)
     cv2.destroyAllWindows()
-    cv2.imwrite(r'C:/Users/personal/Documents/openCV/matt/coins_calculated.jpg', coins_circled)
+    cv2.imwrite(r'coins_calculated.jpg', coins_circled)
 
 
 if __name__ == "__main__":
